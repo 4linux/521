@@ -1,0 +1,12 @@
+{% extends "base-app.html"  %}
+{% from "navbar.html" import navbar  %}
+{% from "profile.html" import profile %}
+
+
+{% block navbar %}
+	{{navbar()}}
+{% endblock  %}
+
+{% block content %}
+	{{ profile() }}
+{% endblock  %}
