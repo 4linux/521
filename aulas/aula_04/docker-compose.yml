@@ -1,0 +1,39 @@
+version: '3' 
+services:
+  flask_alpine:
+    image: "flaskapp_alpine"
+    ports:
+      - 5000
+    volumes:
+      - "$PWD:/app"
+    environment:
+      - FLASK_ENV=production
+    networks:
+      nova_rede:
+        ipv4_address: '200.100.50.5'
+
+  mongodb:
+    image: "mongo:latest"
+    ports:
+      - 27017
+    volumes:
+      - "db:/data/db"
+    networks:
+      nova_rede:
+        ipv4_address: '200.100.50.50'
+
+volumes:
+  db: {}
+
+networks:  
+  nova_rede:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "200.100.50.0/24"
+
+
+
+
+
+
