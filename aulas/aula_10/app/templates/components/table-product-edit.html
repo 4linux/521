@@ -1,0 +1,54 @@
+{% macro table_product_edit(context)  %}
+
+{% set th_class = "px-6 py-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"  %}
+
+{% set td_class = "px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm text-center leading-5 text-gray-900" %}
+
+{% set input_class ="form-input w-full border-2 mt-2 bg-gray-50 rounded-md focus:border-indigo-600"  %}
+
+{% set button_class = "px-4 py-2 bg-gray-800 text-gray-200 rounded-md hover:bg-gray-700 focus:outline-none focus:bg-gray-700"%}
+
+<thead>
+	<tr>
+		<th class="{{ th_class  }}">id</th>
+		<th class="{{ th_class  }}">produto</th>
+		<th class="{{ th_class  }}">descrição</th>
+		<th class="{{ th_class  }}">quantidade</th>
+		<th class="{{ th_class  }}">preço unitário</th>
+		<th class="{{ th_class }}"> </th>
+	</tr>
+</thead>
+<tbody class="bg-white">
+	{% for produto in context %}
+		<tr>
+			<td class="{{ td_class }}"> <input class="{{ input_class  }}"  
+					                               type="text" 
+																				 value="{{produto.id}}">
+					                         </input> 
+		  </td>
+			<td class="{{ td_class }}"> <input class="{{ input_class  }}"  
+					                               type="text" 
+																				 value="{{produto.name}}">
+					                         </input> 
+		  </td>
+			<td class="{{ td_class }}"> <input class="{{ input_class  }}"  
+					                               type="text" 
+																				 value="{{produto.desc}}">
+					                         </input> 
+		  </td>
+			<td class="{{ td_class }}"> <input class="{{ input_class  }}"  
+					                               type="text" 
+																				 value="{{produto.qtde}}">
+					                         </input> 
+		  </td>
+			<td class="{{ td_class }}"> <input class="{{ input_class  }}"  
+					                               type="text" 
+																				 value="{{produto.price}}">
+					                         </input> 
+		  </td>
+			<td class = "{{ td_class  }}"> <button class="{{ button_class}}"> salvar  </button>
+    </tr>
+	{% endfor  %}
+</tbody>
+
+{% endmacro %}

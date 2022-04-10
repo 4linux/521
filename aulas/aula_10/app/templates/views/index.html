@@ -1,0 +1,34 @@
+{% extends "views/base.html"  %}
+
+{% from "components/sidebar.html" import sidebar %}
+{% from "components/stats.html" import stats  %}
+{% from "components/table.html" import table  %}
+
+{% set view_name = "Resumo" %}
+
+{% block sidebar  %}
+  {{ sidebar("Dashboard")  }}
+{% endblock %}
+
+
+{% block content  %}
+
+ <div class="flex-1 flex flex-col overflow-hidden">
+   <main class="
+          flex-1 
+          overflow-x-hidden 
+          overflow-y-auto 
+          bg-gray-200"
+ 	>
+     <div class="container mx-auto px-6 py-8">
+ 				<h3 class="text-gray-700 text-3xl font-medium">{{ view_name  }}</h3>
+
+				{{ stats(context.results)  }}
+
+				{{ table(context.table, view_name)  }}
+ 
+     </div>
+ 	</main>
+ </div>
+
+{% endblock  %}

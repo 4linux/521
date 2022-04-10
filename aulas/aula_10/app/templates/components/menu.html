@@ -1,0 +1,35 @@
+{% macro menu(selected)  %}
+
+{% set unselected = "hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" %}
+
+{%
+  set links = ([  
+	{ "href": "/", "icon": "fas fa-chart-pie", "display": "Dashboard"},
+	{ "href": "/", "icon": "fas fa-gift", "display": "Produtos"},
+	{ "href": "/", "icon": "fas fa-user-circle", "display": "Perfil"},
+	{ "href": "/", "icon": "fas fa-sign-out-alt", "display": "Sair"},
+  ])
+%}
+
+<nav class="mt-6">
+
+{% for link in links  %}
+
+	<a class="
+      flex 
+      items-center 
+      mt-4 
+      py-2 
+      px-6 
+      bg-opacity-25 
+			text-gray-500
+			{{ unselected if selected != link.display else 'bg-gray-600' }}"
+     href="{{link.href}}"
+	>
+	  <i class="{{link.icon}}"></i>
+		<span class="mx-3">{{ link.display }}</span>
+  </a>
+
+{% endfor  %}
+</nav>
+{% endmacro  %}

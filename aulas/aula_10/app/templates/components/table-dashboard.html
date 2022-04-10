@@ -1,0 +1,30 @@
+{% macro table_dashboard(context)  %}
+
+{% set th_class = "px-6 py-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"  %}
+
+{% set td_class = "px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm text-center leading-5 text-gray-900" %}
+
+<thead>
+	<tr>
+		<th class="{{ th_class  }}">id</th>
+		<th class="{{ th_class  }}">estoque</th>
+		<th class="{{ th_class  }}">descrição</th>
+		<th class="{{ th_class  }}">quantidade</th>
+		<th class="{{ th_class  }}">preço unitário</th>
+		<th class="{{ th_class  }}">preço total</th>
+	</tr>
+</thead>
+<tbody class="bg-white">
+	{% for estoque in context %}
+		<tr>
+		  <td class="{{ td_class }}"> {{estoque.id}} </td>
+		  <td class="{{ td_class }}"> {{estoque.name}} </td>
+		  <td class="{{ td_class }}"> {{estoque.desc}} </td>
+		  <td class="{{ td_class }}"> {{estoque.qtde}} </td>
+		  <td class="{{ td_class }}"> {{estoque.price}} </td>
+		  <td class="{{ td_class }}"> {{estoque.price * estoque.qtde}} </td>
+    </tr>
+	{% endfor  %}
+</tbody>
+
+{% endmacro %}

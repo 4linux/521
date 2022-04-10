@@ -1,0 +1,25 @@
+{% macro header(variable)  %}
+<div class="
+      flex 
+      items-center 
+      justify-center 
+      mt-8
+">
+
+  <div class="flex items-center" style="margin-left:-3em">
+     <img src= "{{ url_for('static', filename='i/footlogo.png')  }}" 
+          class="
+           h-14
+           w-auto"
+     />
+     
+		 <span class="
+            text-white 
+            text-2xl 
+            mx-2 font-semibold">
+				    {{ variable  }}
+     </span>
+   </div>
+</div>
+
+{% endmacro  %}

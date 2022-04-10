@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+				<title>{% block title  %} {% endblock  %}</title>
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=a1f9d71b056914e1537c">
+			  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+			  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+			  <link href="http://fonts.cdnfonts.com/css/roboto" rel="stylesheet">
+				<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    </head>
+    <body>
+				<!-- main div -->
+        <div 
+					class= " 
+					  flex 
+						h-screen 
+						bg-gray-200 
+						font-roboto
+					">
+
+						{% block sidebar  %}
+
+						{% endblock  %}
+
+						{% block content  %}
+
+						{% endblock  %}
+
+        </div>
+    </body>
+</html>
+

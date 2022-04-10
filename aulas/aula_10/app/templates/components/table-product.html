@@ -1,0 +1,43 @@
+{% macro table_product(context)  %}
+
+{% set th_class = "px-6 py-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"  %}
+
+{% set td_class = "px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm text-center leading-5 text-gray-900" %}
+
+{% set a_class ="text-indigo-600 hover:text-indigo-900"  %}
+
+<thead>
+	<tr>
+		<th class="{{ th_class  }}">id</th>
+		<th class="{{ th_class  }}">produto</th>
+		<th class="{{ th_class  }}">descrição</th>
+		<th class="{{ th_class  }}">quantidade</th>
+		<th class="{{ th_class  }}">preço unitário</th>
+		<th class="{{ th_class  }}">preço total</th>
+		<th class="{{ th_class  }}"></th>
+	</tr>
+</thead>
+<tbody class="bg-white">
+	{% for produto in context %}
+		<tr>
+		  <td class="{{ td_class }}"> {{produto.id}} </td>
+		  <td class="{{ td_class }}"> {{produto.name}} </td>
+		  <td class="{{ td_class }}"> {{produto.desc}} </td>
+		  <td class="{{ td_class }}"> {{produto.qtde}} </td>
+		  <td class="{{ td_class }}"> {{produto.price}} </td>
+		  <td class="{{ td_class }}"> {{produto.price * produto.qtde}} </td>
+			<td class="{{ td_class }}"> <span class = "p-2"> 
+							                      <a class="{{a_class}}" 
+																		    href="/api/product/{{produto.id}}"
+																		 ><i class="fas fa-edit px-2"></i></a>
+							                      <a class="{{a_class}}" 
+																		    href="/api/product/delete/{{produto.id}}"
+																		 ><i class="fas fa-trash-alt"></i></a>
+					</span>
+			</td>
+																										
+    </tr>
+	{% endfor  %}
+</tbody>
+
+{% endmacro %}
